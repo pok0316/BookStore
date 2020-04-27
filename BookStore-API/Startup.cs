@@ -15,6 +15,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
+using BookStore_API.Mappings;
+using AutoMapper;
 
 namespace BookStore_API
 {
@@ -36,6 +38,16 @@ namespace BookStore_API
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddCors(c =>
+            {
+                c.AddPolicy("CorsPolicy", p =>
+                     p.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
+
+            services.AddAutoMapper(typeof(Maps));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -50,14 +62,7 @@ namespace BookStore_API
                 c.IncludeXmlComments(xpath);
             });
 
-            services.AddCors(c =>
-            {
-                c.AddPolicy("CorsPolicy", p =>
-                     p.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader());
-            });
-
+            
             services.AddControllers();
         }
 
@@ -75,7 +80,7 @@ namespace BookStore_API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+           
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
