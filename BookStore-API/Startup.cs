@@ -1,12 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using BookStore_API.Data;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +12,8 @@ using System.Reflection;
 using System.IO;
 using BookStore_API.Mappings;
 using AutoMapper;
+using BookStore_API.Services;
+using BookStore_API.Contracts;
 
 namespace BookStore_API
 {
@@ -62,7 +59,7 @@ namespace BookStore_API
                 c.IncludeXmlComments(xpath);
             });
 
-            
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddControllers();
         }
 

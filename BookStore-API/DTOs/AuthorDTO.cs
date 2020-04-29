@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore_API.DTOs
 {
@@ -10,5 +11,24 @@ namespace BookStore_API.DTOs
         public string Bio { get; set; }
 
         public virtual IList<BookDTO> Books { get; set; }
+    }
+
+    public class AuthorCreateDTO
+    {
+        [Required]
+        public string Firstname { get; set; }
+        [Required] 
+        public string Lastname { get; set; }
+        public string Bio { get; set; }
+    }
+
+    public class AuthorUpdateDTO
+    {
+        public int Id { get; set; }
+        [Required] 
+        public string Firstname { get; set; }
+        [Required] 
+        public string Lastname { get; set; }
+        public string Bio { get; set; }
     }
 }
