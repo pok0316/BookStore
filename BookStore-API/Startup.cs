@@ -60,6 +60,7 @@ namespace BookStore_API
             });
 
             services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
             services.AddControllers();
         }
 
@@ -79,7 +80,6 @@ namespace BookStore_API
             }
            
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Book Store API");
