@@ -6,32 +6,32 @@
     <members>
         <member name="T:BookStore_API.Controllers.AuthorsController">
             <summary>
-            Endpoint used to interace with the Authors in the book store's database
+            Endpoint used to interact with the Authors in the book store's database
             </summary>
         </member>
         <member name="M:BookStore_API.Controllers.AuthorsController.GetAuthors">
             <summary>
-            Get all Authors
+            Get All Authors
             </summary>
-            <returns></returns>
+            <returns>List Of Authors</returns>
         </member>
         <member name="M:BookStore_API.Controllers.AuthorsController.GetAuthor(System.Int32)">
             <summary>
-            Get an author by id
+            Get An Author by Id
             </summary>
             <param name="id"></param>
-            <returns>An Auther's record</returns>
+            <returns>An Author's record</returns>
         </member>
         <member name="M:BookStore_API.Controllers.AuthorsController.Create(BookStore_API.DTOs.AuthorCreateDTO)">
             <summary>
-            Create An Author
+            Creates An Author
             </summary>
             <param name="author"></param>
             <returns></returns>
         </member>
         <member name="M:BookStore_API.Controllers.AuthorsController.Update(System.Int32,BookStore_API.DTOs.AuthorUpdateDTO)">
             <summary>
-            Update Author
+            Updates An Author
             </summary>
             <param name="id"></param>
             <param name="authorDTO"></param>
@@ -39,7 +39,7 @@
         </member>
         <member name="M:BookStore_API.Controllers.AuthorsController.Delete(System.Int32)">
             <summary>
-            Delete Author
+            Removes an author by id
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -92,6 +92,13 @@
             <summary>
             Get a List of all values
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore_API.Controllers.UsersController.Login(BookStore_API.DTOs.UserDTO)">
+            <summary>
+            User Login Endpoint
+            </summary>
+            <param name="user"></param>
             <returns></returns>
         </member>
     </members>
